@@ -5,7 +5,7 @@
         <b-form-group label-for="input-formatter" description="Pesquise pelo nome do produto" class="mb-0">
           <label>Pesquisar Produto</label>
           <b-form-input v-model="searchProd" class="w-50 mx-auto"
-            placeholder="Pesquise pelo produto desejado"></b-form-input>
+            placeholder="Pesquise pelo produto desejado" @input="pageReset"></b-form-input>
 
         </b-form-group>
       </div>
@@ -130,6 +130,10 @@ export default {
       
       return price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
     },
+
+    pageReset(){
+      this.pageCurrent = 1;
+    }
   },
   mounted() {
     this.getProducts();
